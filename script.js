@@ -40,7 +40,7 @@ class Particle {
         this.randomSizeMult = Math.random(); 
         this.updateSize();
         
-        this.color = `hsl(${Math.random() * 360}, 100%, 70%)`;
+        this.color = `hsl(${Math.random() * 360}, 100%, 60%)`;
     }
 
     updateSize() {
