@@ -6,8 +6,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Baseado no vídeo: "https://www.youtube.com/shorts/tU8N3JxjFdU"-->
+    <!-- Painel de Controles -->
+    <div id="controls">
+        <label>
+            Número de Partículas: <span id="countVal">300</span>
+            <input type="range" id="particleCount" min="10" max="1500" value="300">
+        </label>
+        
+        <label>
+            Tamanho Máximo: <span id="sizeVal">8</span>
+            <input type="range" id="baseSize" min="1" max="30" value="8">
+        </label>
+        
+        <label>
+            Alcance Magnético: <span id="rangeVal">150</span>
+            <input type="range" id="forceRange" min="50" max="500" value="150">
+        </label>
 
+        <label>
+            Velocidade/Força: <span id="forceVal">0.03</span>
+            <input type="range" id="attractionForce" min="0.01" max="0.2" step="0.01" value="0.03">
+        </label>
+    </div>
+
+    <!-- Baseado no vídeo: "https://www.youtube.com/shorts/tU8N3JxjFdU"-->
     <canvas id="magnetCanvas"></canvas>
     
     <script src="script.js"></script>
