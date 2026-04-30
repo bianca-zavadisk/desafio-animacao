@@ -14,6 +14,13 @@ window.addEventListener("mousemove", e => {
     mouse.y = e.clientY;
 });
 
+let isExploding = false;
+
+window.addEventListener("mousedown", () => {
+    isExploding = true;
+    setTimeout(() => isExploding = false, 250); 
+});
+
 // Configurações globais controladas pela interface
 const config = {
     count: 300,
@@ -47,8 +54,13 @@ class Particle {
         const force = Math.min(100 / dist, 5);
 
         if (dist < config.range) {
-            this.x += dx * config.force * force;
-            this.y += dy * config.force * force;
+            if (isExploding) {
+                this.x -= dx * config.force * force * 10;
+                this.y -= dy * config.force * force * 10;
+            } else {
+                this.x += dx * config.force * force;
+                this.y += dy * config.force * force;
+            }
         } else {
             this.x += (this.homeX - this.x) * 0.05;
             this.y += (this.homeY - this.y) * 0.05;
